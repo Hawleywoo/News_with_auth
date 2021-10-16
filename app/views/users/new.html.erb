@@ -1,8 +1,8 @@
 <h1>Users#new</h1>
-<%= @user.erros.count %>
+<%= @user.errors.count %>
 <%= form_for(@user) do |f| %>
     <%= f.label :username %>
-    <%= f.ttext_field :username, placeholder: :username %>
+    <%= f.text_field :username, placeholder: :username %>
     <%= f.label :password %>
     <%= f.password_field :password, placeholder: :password%>
     <%= submit_tag "Create" %>
