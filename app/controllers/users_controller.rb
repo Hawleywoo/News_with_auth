@@ -19,11 +19,11 @@ class UsersController < ApplicationController
       p @user.errors.count
       redirect_to @user, alert: "User created successfully"
     else
-      redirect_to new_user_path, alert: 'Error creating user'
+      redirect_to new_user_path, alert: @user.errors.full_messages.join('</br>')
     end
   end
 
   def user_params
-    params.require(:user).permit(:username, :password, :salt, :encrypted_password)
+    params.require(:user).permit(:username, :password, :email, :salt, :encrypted_password)
   end
 end

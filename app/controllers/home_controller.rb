@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  skip_before_action :authorized, only: [:login, :logout]
+  skip_before_action :authorized, only: [:login, :logout, :index]
 
   def index
     p params
@@ -12,6 +12,10 @@ class HomeController < ApplicationController
 
       if @valid
         session[:user_id] = user.id
+        redirect_to '/'
+      else
+        flash.alert = 'Username or password incorrect'
+        redirect_to '/home/login'
       end
     end
   end

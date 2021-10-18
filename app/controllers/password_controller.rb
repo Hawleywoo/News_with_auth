@@ -1,4 +1,5 @@
 class PasswordController < ApplicationController
+  
   def reset
     token = request.query_parameters['token']
     @user = User.find_by_reset(token) or params['token'] or not_found
