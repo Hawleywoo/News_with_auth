@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'password/reset'
   get 'password/forgot'
+  post 'password/reset'
+  post 'password/forgot'
   resources :users
   get 'users/new'
   get 'users/create'
